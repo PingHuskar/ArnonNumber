@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #111;
+    color: #ffffff;
+    max-height: 100vh;
+    display: block;
+    margin-top: 30vh;
+    font-family: 'Srisakdi', cursive;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    h1 {
+        line-height: 2;
+        display: inline-block;
+        vertical-align: middle;
+        .symbol {
+            padding: 0 5px;
+            font-weight: 840.00;
+        }
+    }
+}
