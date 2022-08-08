@@ -1,27 +1,28 @@
 const th_num = '๐๑๒๓๔๕๖๗๘๙'
 const roman_num = '0123456789'
-
-var num1 = arnonNum(parseFloat(prompt("Enter First Number : ")))
-// var num1 = '๑๒๓๐'
-var num2 = arnonNum(parseFloat(prompt("Enter Second Number : ")))
-// var num2 = '๖๔๕'
-
-// console.log(document.querySelectorAll('#num1'))
-for (var i = 0; i<document.querySelectorAll('#num1').length; i++) {
-    document.querySelectorAll('#num1')[i].innerText = num1
+const main = () => {
+    var num1 = arnonNum(parseFloat(document.getElementById("inputNum1").value))
+    var num2 = arnonNum(parseFloat(document.getElementById("inputNum2").value))
+    document.getElementById('sum').innerText = sumArnon(num1,num2)
+    document.getElementById('subtract').innerText = subtractArnon(num1,num2)
+    document.getElementById('multiply').innerText = multiplyArnon(num1,num2)
+    document.getElementById('divide').innerText = divideArnon(num1,num2)
+    for (var i of document.querySelectorAll('#num1')) {
+        i.innerText = num1
+    }
+    for (var i of document.querySelectorAll('#num2')) {
+        i.innerText = num2
+    }
 }
-// document.getElementById('num1').innerText = num1
-for (var i = 0; i<document.querySelectorAll('#num2').length; i++) {
-    document.querySelectorAll('#num2')[i].innerText = num2
-}
-document.getElementById('num2').innerText = num2
+
+window.onload = main();
 
 function arnonNum(roNum) {
     str_roNum = roNum.toString()
     // .split("").reverse().join("")
     // reverse string
 
-    console.log(str_roNum)
+    // console.log(str_roNum)
     // console.log(str_roNum,typeof(str_roNum))
     var th = ''
     for (var i = 0; i<str_roNum.length;i++) {
@@ -42,7 +43,7 @@ function roNum(str_thNum) {
         // console.log(th_num.indexOf(str_thNum[i]))
         ro += th_num.indexOf(str_thNum[i])
     }
-    console.log(parseFloat(ro))
+    // console.log(parseFloat(ro))
     return parseFloat(ro)
 }
 
@@ -59,13 +60,7 @@ function multiplyArnon(num1,num2) {
     return arnonNum(roNum(num1) * roNum(num2))
 }
 function divideArnon(num1,num2) {
-    return arnonNum(roNum(num1) / roNum(num2))
+    return roNum(num2) ? arnonNum(roNum(num1) / roNum(num2)) : "หาค่าไม่ได้"
 }
 
-// document.getElementById('sum').innerText = arnonNum(num2)
 document.getElementById('loading').style.display = 'none'
-document.getElementById('sum').innerText = sumArnon(num1,num2)
-// document.getElementById('sum').innerText = num1+num2
-document.getElementById('subtract').innerText = subtractArnon(num1,num2)
-document.getElementById('multiply').innerText = multiplyArnon(num1,num2)
-document.getElementById('divide').innerText = divideArnon(num1,num2)
